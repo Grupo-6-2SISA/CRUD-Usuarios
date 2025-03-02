@@ -52,7 +52,7 @@ Fixes #42
 chore(deps): atualizar Spring Boot para versão 3.1.0
 ```
 
-#🚦Padrão de branches
+# 🚦Padrão de branches
 ```bash
 -------------------------------------------------------------------------------
 |-🌍 `main`:                       |versão estável do projeto.                |
