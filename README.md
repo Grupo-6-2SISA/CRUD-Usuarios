@@ -53,8 +53,8 @@ chore(deps): atualizar Spring Boot para versão 3.1.0
 ```
 
 # 🚦Padrão de branches
-```bash
-| Branch com Emoji                              | Descrição                               |
+
+| Branch                                        | Descrição                               |
 | --------------------------------------------- | --------------------------------------- |
 | 🌍 `main`                                     | versão estável do projeto.             |
 | ⚙ `develop`                                  | branch principal para desenvolvimento. |
@@ -65,7 +65,6 @@ chore(deps): atualizar Spring Boot para versão 3.1.0
 
 
 
-```
 ## Criar uma nova branch
 Para criar uma nova branch e mudar para ela, use o comando:
 ```bash 
