@@ -6,7 +6,7 @@ import java.time.LocalDate
 data class Cliente (
     var nome: String? = null,
     var cpf: String? = null,
-    var telefone: Int? = null,
+    var telefone: String? = null,
     var email: String? = null,
     var sexo: String? = null,
     var rg: String? = null,
