@@ -47,4 +47,32 @@ class ClienteController {
             ResponseEntity.status(404).body("Cliente não encontrado")
         }
 
-    }}
+    }
+
+    @GetMapping
+    fun listar(): ResponseEntity<List<Cliente>> {
+        return if (clientes.isEmpty()) {
+            ResponseEntity.status(204).build()
+        } else {
+            ResponseEntity.status(200).body(clientes)
+        }
+
+    }
+
+    @PutMapping("/{id}")
+    fun atualizar(@PathVariable id : Int, @RequestBody clienteAtualizado: Cliente): ResponseEntity<Cliente> {
+        return if (id in 0 until clientes.size) {
+            clientes[id] = clienteAtualizado
+            ResponseEntity.status(200).body(clienteAtualizado)
+        } else {
+            ResponseEntity.status(404).build()
+        }
+    }
+
+}   
+        
+
+
+
+    
+
