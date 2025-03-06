@@ -13,6 +13,4 @@ data class Cliente (
     var causa: String? = null,
     var dtNasc: LocalDate? = null,
     var proAbono: Boolean? = null
-){
-
-}
+)

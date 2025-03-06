@@ -21,28 +21,15 @@ class ClienteController {
 
     @PostMapping
     fun criar(@RequestBody novoCliente: Cliente): ResponseEntity<Any> {
-        return if (novoCliente.nome != null &&
-            novoCliente.cpf != null &&
-            novoCliente.rg != null &&
-            novoCliente.causa != null &&
-            novoCliente.sexo != null &&
-            novoCliente.telefone != null &&
-            novoCliente.email != null &&
-            novoCliente.proAbono != null &&
-            novoCliente.dtNasc != null
-        ) {
-            clientes.add(novoCliente)
-            ResponseEntity.status(201).body(novoCliente)
-        } else {
-            ResponseEntity.status(400).body(mapOf("error" to "Dados inválidos ou incompletos"))
-        }
+        clientes.add(novoCliente)
+        return ResponseEntity.status(201).body(novoCliente)
     }
 
     @DeleteMapping("/{id}")
     fun excluir(@PathVariable id: Int): ResponseEntity<String> {
         return if (id in clientes.indices) {
             clientes.removeAt(id)
-            ResponseEntity.ok("Cliente excluído com sucesso")
+            ResponseEntity.status(200).body("Cliente excluído com sucesso")
         } else {
             ResponseEntity.status(404).body("Cliente não encontrado")
         }
