@@ -12,5 +12,5 @@ data class Cliente (
     var rg: String? = null,
     var causa: String? = null,
     var dtNasc: LocalDate? = null,
-    var proAbono: Boolean? = null
+    var proBono: Boolean? = null
 )
