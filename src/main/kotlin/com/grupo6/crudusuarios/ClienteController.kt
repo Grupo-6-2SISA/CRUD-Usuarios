@@ -56,6 +56,14 @@ class ClienteController {
         }
     }
 
+
+    @PatchMapping("/{id}/{novoEmail}")
+    fun atualizarEmail(@PathVariable id:Int, @PathVariable novoEmail:String): String {
+        clientes[id].email = novoEmail
+        return "Email atualizado com sucesso"
+    }
+
+
 }   
         
 
