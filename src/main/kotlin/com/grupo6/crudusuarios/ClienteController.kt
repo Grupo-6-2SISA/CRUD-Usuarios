@@ -46,6 +46,14 @@ class ClienteController {
 
     }
 
+    @GetMapping("/{id}")
+    fun recuperarUm(@PathVariable id: Int): ResponseEntity<Cliente> {
+        val cliente = clientes.getOrElse(id) { return ResponseEntity.notFound().build() }
+
+        return ResponseEntity.status(200).body(cliente)
+
+    }
+
     @PutMapping("/{id}")
     fun atualizar(@PathVariable id : Int, @RequestBody clienteAtualizado: Cliente): ResponseEntity<Cliente> {
         return if (id in 0 until clientes.size) {
@@ -56,13 +64,13 @@ class ClienteController {
         }
     }
 
-
     @PatchMapping("/{id}/{novoEmail}")
-    fun atualizarEmail(@PathVariable id:Int, @PathVariable novoEmail:String): String {
-        clientes[id].email = novoEmail
-        return "Email atualizado com sucesso"
-    }
+    fun atualizarEmail(@PathVariable id:Int, @PathVariable novoEmail:String): ResponseEntity<Cliente> {
+        val cliente = clientes.getOrElse(id) { return  ResponseEntity.notFound().build() }
 
+        cliente.email = novoEmail
+        return ResponseEntity.status(200).body(clientes[id])
+    }
 
 }   
         
