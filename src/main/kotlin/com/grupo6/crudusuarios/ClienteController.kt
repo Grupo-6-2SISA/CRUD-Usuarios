@@ -20,7 +20,7 @@ class ClienteController {
     val clientes = mutableListOf<Cliente>()
 
     @PostMapping
-    fun criar(@RequestBody novoCliente: Cliente): ResponseEntity<Any> {
+    fun criar(@RequestBody novoCliente: Cliente): ResponseEntity<Cliente> {
         clientes.add(novoCliente)
         return ResponseEntity.status(201).body(novoCliente)
     }
